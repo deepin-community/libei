@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+
+WORKDIR=$AUTOPKGTEST_TMP
+trap "rm -rf $WORKDIR" 0 INT QUIT ABRT PIPE TERM
+
+cd $WORKDIR
+
+if [ -n "${DEB_HOST_GNU_TYPE:-}" ]; then
+    CROSS_COMPILE="$DEB_HOST_GNU_TYPE-"
+else
+    CROSS_COMPILE=
+fi
+
+cat <<EOF > liboeffis-build.c
+#include <liboeffis.h>
+
+int main()
+{
+    struct oeffis *oeffis = oeffis_new(NULL);
+    oeffis_unref(oeffis);
+
+	return 0;
+}
+EOF
+
+${CROSS_COMPILE}gcc -Wall -Werror -o liboeffis-build liboeffis-build.c `${CROSS_COMPILE}pkg-config --cflags --libs liboeffis-1.0`
+echo "liboeffis build: OK"
+[ -x liboeffis-build ]
+./liboeffis-build
+echo "liboeffis run: OK"

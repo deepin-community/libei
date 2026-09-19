@@ -1,4 +1,33 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs
+export DPKG_GENSYMBOLS_CHECK_LEVEL = 4
+
+built_binaries := $(shell dh_listpackages)
+
 %:
 	dh $@
+
+override_dh_auto_clean:
+	rm -f subprojects/munit
+
+override_dh_auto_test:
+	dh_auto_test -- \
+		--timeout-multiplier 2
+
+override_dh_auto_configure:
+	ln -s ../munit subprojects/
+	dh_auto_configure -- \
+		-Dauto_features=enabled \
+		-Dsd-bus-provider=libsystemd
+
+override_dh_missing:
+	dh_missing -Xusr/bin/ei-debug-events
+
+# debhelper >= 13.4 makes all of /usr/libexec executable, which is not
+# quite right for installed-tests
+execute_after_dh_fixperms:
+ifneq ($(filter %-tests,$(built_binaries)),)
+	chmod --changes a+r,a-x,u+w,og-w debian/*-tests/usr/libexec/libei/*.so
+endif

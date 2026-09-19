@@ -1,5 +1,91 @@
-template-repository (1.0-1) unstable; urgency=medium
+libei (1.3.901-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream release
+  * Remove remaining patch: alternative fix applied in new release
+  * debian/*.symbols: Add new symbols
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Tue, 04 Feb 2025 14:01:09 -0500
+
+libei (1.3.0-3) unstable; urgency=medium
+
+  * Remove no longer needed ppc64el workaround (LP: #2046357)
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Wed, 29 Jan 2025 07:28:01 -0500
+
+libei (1.3.0-2) unstable; urgency=medium
+
+  * Replace patch with dh_auto_test -- --no-suite
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Wed, 08 Jan 2025 17:22:23 -0900
+
+libei (1.3.0-1.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix typo in the patch from 1.3.0-1.1 that broke the package.
+
+ -- Niels Thykier <niels@thykier.net>  Mon, 06 Jan 2025 15:19:16 +0000
+
+libei (1.3.0-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Rebecca N. Palmer ]
+  * Work around infinite recursion in test using a minimal fix.
+    (Closes: #1084287)
+
+ -- Niels Thykier <niels@thykier.net>  Sat, 04 Jan 2025 13:56:48 +0000
+
+libei (1.3.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Drop unnecessary executable permission from libei-tests
+  * Bump Standards Version to 4.7.0
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Thu, 15 Aug 2024 09:12:06 -0400
+
+libei (1.2.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Mon, 01 Apr 2024 16:55:38 -0400
+
+libei (1.2.0-2) unstable; urgency=medium
+
+  * debian/patches/disable_sigalrm_tests.patch:
+    - disable the sigalrm tests for now as suggested by upstream,
+      the tests didn't exist before so it's not a regression
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 29 Jan 2024 16:30:09 +0100
+
+libei (1.2.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/*.symbols: Add new symbols
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Tue, 05 Dec 2023 19:04:23 -0500
+
+libei (1.1.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Sat, 23 Sep 2023 12:45:49 -0400
+
+libei (1.0.901-3) unstable; urgency=medium
+
+  * debian/tests/control: Depend on valgrind-if-available instead of valgrind
+  * Extend dh_auto_test timeout
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Sat, 23 Sep 2023 12:42:45 -0400
+
+libei (1.0.901-2) unstable; urgency=medium
+
+  * debian/copyright: Add copyright for debian/* per ftpmaster request
+  * Release to unstable
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Sun, 10 Sep 2023 15:20:07 -0400
+
+libei (1.0.901-1) experimental; urgency=medium
+
+  * Initial release (Closes: #1050241, LP: #2031115)
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Wed, 06 Sep 2023 16:50:41 -0400

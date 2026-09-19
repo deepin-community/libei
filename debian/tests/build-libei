@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+
+WORKDIR=$AUTOPKGTEST_TMP
+trap "rm -rf $WORKDIR" 0 INT QUIT ABRT PIPE TERM
+
+cd $WORKDIR
+
+if [ -n "${DEB_HOST_GNU_TYPE:-}" ]; then
+    CROSS_COMPILE="$DEB_HOST_GNU_TYPE-"
+else
+    CROSS_COMPILE=
+fi
+
+cat <<EOF > libei-build.c
+#include <libei.h>
+
+int main()
+{
+    struct ei *ei = ei_new_receiver(NULL);
+    ei_unref(ei);
+
+	return 0;
+}
+EOF
+
+${CROSS_COMPILE}gcc -Wall -Werror -o libei-build libei-build.c `${CROSS_COMPILE}pkg-config --cflags --libs libei-1.0`
+echo "libei build: OK"
+[ -x libei-build ]
+./libei-build
+echo "libei run: OK"

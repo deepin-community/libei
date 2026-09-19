@@ -1,0 +1,6 @@
+version=4
+opts="searchmode=plain" \
+https://gitlab.freedesktop.org/libinput/libei/tags \
+ -/archive/[\d.]+/@PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@
+opts="component=munit,mode=git,compression=gz" \
+ https://github.com/nemequ/munit.git HEAD same

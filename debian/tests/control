@@ -1,0 +1,11 @@
+Tests: build-libei
+Depends: build-essential, libei-dev, pkg-config
+
+Tests: build-libeis
+Depends: build-essential, libeis-dev, pkg-config
+
+Tests: build-liboeffis
+Depends: build-essential, liboeffis-dev, pkg-config
+
+Tests: upstream-tests
+Depends: @, valgrind-if-available

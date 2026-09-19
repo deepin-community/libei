@@ -1,0 +1,14 @@
+liboeffis.so.1 liboeffis1 #MINVER#
+* Build-Depends-Package: liboeffis-dev
+ oeffis_create_session@Base 1.0.0
+ oeffis_create_session_on_bus@Base 1.0.0
+ oeffis_dispatch@Base 1.0.0
+ oeffis_get_eis_fd@Base 1.0.0
+ oeffis_get_error_message@Base 1.0.0
+ oeffis_get_event@Base 1.0.0
+ oeffis_get_fd@Base 1.0.0
+ oeffis_get_user_data@Base 1.0.0
+ oeffis_new@Base 1.0.0
+ oeffis_ref@Base 1.0.0
+ oeffis_set_user_data@Base 1.0.0
+ oeffis_unref@Base 1.0.0

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+for tst in /usr/libexec/libei/tests/*; do
+    LD_LIBRARY_PATH=/usr/libexec/libei/:$LD_LIBRARY_PATH $tst
+done

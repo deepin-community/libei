@@ -1,0 +1,3 @@
+usr/lib/*/liboeffis.so
+usr/lib/*/pkgconfig/liboeffis-1.0.pc
+usr/include/libei-1.0/liboeffis.h

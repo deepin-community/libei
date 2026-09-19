@@ -1,0 +1,6 @@
+usr/lib/*/libmunit.so usr/libexec/libei
+obj-*/test/eierpecken usr/libexec/libei/tests
+obj-*/test/unit-tests-ei usr/libexec/libei/tests
+obj-*/test/unit-tests-eis usr/libexec/libei/tests
+obj-*/test/unit-tests-oeffis usr/libexec/libei/tests
+obj-*/test/unit-tests-utils usr/libexec/libei/tests
