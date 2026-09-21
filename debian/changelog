@@ -1,3 +1,9 @@
+template-repository (1.0-1deepin1) unstable; urgency=medium
+
+  * Rebuild with LTO enabled (dpkg vendor feature optimize/lto).
+
+ -- tunaichao <tunaichao@uniontech.com>  Mon, 21 Sep 2026 15:16:55 +0800
+
 template-repository (1.0-1) unstable; urgency=medium
 
   * Initial release
